@@ -46,3 +46,6 @@ source 'https://dresssed.com/gems/9a75b4aa01a9e295d68c/'
 # Uncomment which version of Bootstrap you would like to use Gimlet with.
 gem 'dresssed-gimlet', '3.0.0.rc12'  # For Bootsrap 3
 # gem 'dresssed-gimlet', '1.4.1'  # For Bootsrap 2.0.1
+
+gem 'devise'
+

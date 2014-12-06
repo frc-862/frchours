@@ -2,6 +2,6 @@
 .navbar-text.pull-right
   = icon_tag "user"
   Welcome,
-  %strong= "User"
+  %strong= current_admin.email
   %span.divider |
-  = link_to "Settings", "#"
+  = link_to "Settings", edit_admin_registration_path
