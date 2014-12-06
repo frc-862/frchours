@@ -1,0 +1,28 @@
+= form_for(@member, html: { class: 'form-horizontal' }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.form_group :last_name do |f|
+      = f.label :last_name, class: 'form-label col-md-2'
+      .col-md-8
+        = f.text_field :last_name, class: 'form-control'
+        = f.error_messages
+    = f.form_group :first_name do |f|
+      = f.label :first_name, class: 'form-label col-md-2'
+      .col-md-8
+        = f.text_field :first_name, class: 'form-control'
+        = f.error_messages
+    = f.form_group :grade do |f|
+      = f.label :grade, class: 'form-label col-md-2'
+      .col-md-8
+        = f.text_field :grade, class: 'form-control'
+        = f.error_messages
+    = f.form_group :email do |f|
+      = f.label :email, class: 'form-label col-md-2'
+      .col-md-8
+        = f.text_field :email, class: 'form-control'
+        = f.error_messages
+
+  .form-actions.col-md-offset-2.col-md-10
+    = f.submit class: 'btn btn-primary'
+    = link_to "Cancel", members_path, class: 'btn'

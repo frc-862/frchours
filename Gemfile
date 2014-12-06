@@ -39,6 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'haml'
+gem 'haml-rails'
 
 source 'https://dresssed.com/gems/9a75b4aa01a9e295d68c/'
 

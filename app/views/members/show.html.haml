@@ -1,0 +1,26 @@
+- @title = "Showing member"
+
+.form-horizontal
+  .form-group
+    %label.col-sm-2.form-label Last name
+    .uneditable-input.col-md-8.form-control
+      %span= @member.last_name
+
+  .form-group
+    %label.col-sm-2.form-label First name
+    .uneditable-input.col-md-8.form-control
+      %span= @member.first_name
+
+  .form-group
+    %label.col-sm-2.form-label Grade
+    .uneditable-input.col-md-8.form-control
+      %span= @member.grade
+
+  .form-group
+    %label.col-sm-2.form-label Email
+    .uneditable-input.col-md-8.form-control
+      %span= @member.email
+
+  .form-actions.col-md-offset-2
+    = link_to icon_tag("pencil") + ' Edit', edit_member_path(@member), class: 'btn btn-primary'
+    = link_to 'Back', members_path, class: 'btn'

@@ -1,5 +1,5 @@
 module ApplicationHelper
   def app_name
-    "My App"
+    "FRC862 Hours"
   end
 end
