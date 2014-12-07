@@ -13,9 +13,13 @@
     #content.col-md-9
       = yield
 
-    #sidebar.col-md-3
-      %h6 Menu
+    #sidebar.col-md-3.live-info
+      %h6 Live content data
       %p
+        foo
+      %p
+        Test stuff
+        wow
 
-      %ul.nav.nav-tabs.nav-stacked.nav-caret-left
-        = activatable_li_tag_with_link "Sub menu", "#"
+      -#%ul.nav.nav-tabs.nav-stacked.nav-caret-left
+        -#= activatable_li_tag_with_link "Sub menu", "#"
