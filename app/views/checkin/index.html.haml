@@ -1,0 +1,13 @@
+%h1 Type or scan your student id
+= form_for @checkin, :url => checkin_path, :html => { :class => "form-horizontal member" } do |f|
+  = f.error_notification
+  .form-inputs
+    = f.form_group :student_id do |f|
+      = f.label :student_id, class: 'form-label col-md-2'
+      .col-md-8
+        = f.text_field :student_id, class: 'form-control', autofocus: true
+        = f.error_messages
+
+  .form-actions.col-md-offset-2.col-md-10
+    = f.submit class: 'btn btn-primary'
+    = link_to "Cancel", members_path, class: 'btn'

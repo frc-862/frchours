@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'checkin' => 'checkin#index'
+  post 'checkin' => 'checkin#create'
+
+
   resources :attendances
 
   devise_for :admins
