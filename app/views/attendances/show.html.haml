@@ -1,0 +1,21 @@
+- @title = "Showing attendance"
+
+.form-horizontal
+  .form-group
+    %label.col-sm-2.form-label Student
+    .uneditable-input.col-md-8.form-control
+      %span= @attendance.student_id
+
+  .form-group
+    %label.col-sm-2.form-label Signin
+    .uneditable-input.col-md-8.form-control
+      %span= @attendance.signin
+
+  .form-group
+    %label.col-sm-2.form-label Signout
+    .uneditable-input.col-md-8.form-control
+      %span= @attendance.signout
+
+  .form-actions.col-md-offset-2
+    = link_to icon_tag("pencil") + ' Edit', edit_attendance_path(@attendance), class: 'btn btn-primary'
+    = link_to 'Back', attendances_path, class: 'btn'

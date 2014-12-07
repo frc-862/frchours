@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :attendances
+
   devise_for :admins
   resources :members
 
