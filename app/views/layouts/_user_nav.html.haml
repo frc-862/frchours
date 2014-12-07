@@ -2,7 +2,4 @@
 .navbar-text.pull-right
   = icon_tag "user"
   - if current_admin 
-    Welcome,
     %strong= current_admin.try(:email)
-    %span.divider |
-  = link_to "Settings", edit_admin_registration_path
