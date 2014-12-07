@@ -1,0 +1,43 @@
+%h2
+  Edit #{resource_name.to_s.humanize}
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {  class: 'form-horizontal', method: :put }) do |f|
+  = devise_error_messages!
+
+  .form-inputs
+    = f.form_group :email do |f|
+      = f.label :email, class: 'form-label col-md-2'
+      .col-md-8
+        = f.email_field :email, class: 'form-control', autofocus: true
+        = f.error_messages
+  
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %div
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
+
+    = f.form_group :password do |f|
+      = f.label :password, class: 'form-label col-md-2'
+      %i (leave blank if you don't want to change it)
+      .col-md-8
+        = f.password_field :password, autocomplete: false, class: 'form-control'
+        = f.error_messages
+
+    = f.form_group :password_confirmation do |f|
+      = f.label :password_confirmation, class: 'form-label col-md-2'
+      .col-md-8
+        = f.password_field :password_confirmation, autocomplete: false, class: 'form-control'
+        = f.error_messages
+
+    = f.form_group :current_password do |f|
+      = f.label :current_password, class: 'form-label col-md-2'
+      %i (we need your current password to confirm your changes)
+      .col-md-8
+        = f.password_field :current_password, autocomplete: false, class: 'form-control'
+        = f.error_messages
+
+  .form-actions.col-md-offset-2.col-md-10
+    = f.submit class: 'btn btn-primary'
+    = link_to "Cancel", members_path, class: 'btn'
+    
+  .form-inputs
+    %h3 Cancel my account
+    = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class: 'btn', method: :delete

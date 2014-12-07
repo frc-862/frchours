@@ -49,3 +49,6 @@ gem 'dresssed-gimlet', '3.0.0.rc12'  # For Bootsrap 3
 
 gem 'devise'
 
+gem 'puma'
+
+gem 'erb2haml', group: :development
