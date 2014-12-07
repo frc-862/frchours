@@ -2,10 +2,15 @@
   = f.error_notification
 
   .form-inputs
+    = f.form_group :student_id do |f|
+      = f.label :student_id, class: 'form-label col-md-2'
+      .col-md-8
+        = f.text_field :student_id, class: 'form-control'
+        = f.error_messages
     = f.form_group :last_name do |f|
       = f.label :last_name, class: 'form-label col-md-2'
       .col-md-8
-        = f.text_field :last_name, class: 'form-control'
+        = f.text_field :last_name, class: 'form-control', autofocus: true
         = f.error_messages
     = f.form_group :first_name do |f|
       = f.label :first_name, class: 'form-label col-md-2'
