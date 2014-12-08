@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.1.5"
 
+gem 'newrelic_rpm'
 gem 'pusher'
 gem 'dalli'
 gem 'rails_12factor'
