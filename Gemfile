@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
+ruby "2.1.5"
 
+gem 'rails_12factor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
@@ -44,6 +46,7 @@ gem 'haml'
 gem 'haml-rails'
 
 source 'https://dresssed.com/gems/9a75b4aa01a9e295d68c/'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master', tag: 'v3.1.0.rc1'
 
 # Uncomment which version of Bootstrap you would like to use Gimlet with.
 gem 'dresssed-gimlet', '3.0.0.rc12'  # For Bootsrap 3
