@@ -1,0 +1,4 @@
+last_name,first_name,grade,email,student_id
+<% for member in @members do -%>
+<%= member.last_name %>, <%= member.first_name %>, <%= member.grade %>, <%= member.email %>, <%= member.student_id %>
+<% end %>

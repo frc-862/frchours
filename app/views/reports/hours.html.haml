@@ -1,6 +1,9 @@
 - @title = "Hours Report"
 = link_to "xml", reports_hours_path(format: :xml)
+&middot;
 = link_to "json", reports_hours_path(format: :json)
+&middot;
+= link_to "csv", reports_hours_path(format: :csv)
 .sheet.sheet-condensed
   .sheet-inner
     %table.table
