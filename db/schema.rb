@@ -54,4 +54,6 @@ ActiveRecord::Schema.define(version: 20141207115542) do
     t.datetime "updated_at"
   end
 
+  add_index "members", ["student_id"], name: "index_members_on_student_id", using: :btree
+
 end
