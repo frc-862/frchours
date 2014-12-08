@@ -24,13 +24,15 @@ class Attendance < ActiveRecord::Base
         Rails.logger.info "CHECKIN #{attendance.id}: auto signout"
         attendance.signout = attendance.signin + 1.hour
         attendance.save!
-        msg = "#{name} auto checked out from #{attendance.signin.to_date}. "
+        push_info("Auto signout #{member.name}")
+        msg = "#{name} auto checked out from #{attendance.signin.to_date}, next time remember to signout when you leave to get proper credit for your time. "
         attendance = nil
       else
         Rails.logger.info "CHECKIN #{attendance.id}: signed out"
         attendance.signout = Time.now
         msg = "#{name} signed out at #{Time.now.localtime}, you worked #{attendance.duration_text}."
         attendance.save!
+        push_info("#{member.name} worked #{attendance.duration_text}")
       end
     end
 
@@ -39,6 +41,7 @@ class Attendance < ActiveRecord::Base
       msg += "#{name} signed in at #{Time.now.localtime}."
       attendance = Attendance.create(:student_id => id, :signin => Time.now)
       Rails.logger.info "CHECKING Creating attendance #{attendance.id}"
+      push_info("#{member.name} signed in")
     end
 
     msg

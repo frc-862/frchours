@@ -16,12 +16,6 @@ class CheckinController < ApplicationController
     Rails.logger.info "Found #{member.inspect}"
 
     if member.nil?
-      Rails.logger.info "Unable to find #{sid.inspect}"
-      member = Member.where("student_id = ?", sid).first
-      Rails.logger.info "retry  -> #{member.inspect}"
-    end
-
-    if member.nil?
       flash[:notice] = "Student not found, please add"
       redirect_to new_member_path(:member => {:student_id => sid})
     else
