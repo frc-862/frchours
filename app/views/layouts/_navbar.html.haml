@@ -17,7 +17,8 @@
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         %ul.nav.navbar-nav= activatable_li_tag_with_link "Home", root_path
         %ul.nav.navbar-nav= activatable_li_tag_with_link "Members", members_path
-        %ul.nav.navbar-nav= activatable_li_tag_with_link "Reports", checkin_path
+        %ul.nav.navbar-nav= activatable_li_tag_with_link "Member Report", reports_members_path
+        %ul.nav.navbar-nav= activatable_li_tag_with_link "Hours Report", reports_hours_path
         %ul.nav.navbar-nav= activatable_li_tag_with_link "Checkin", checkin_path
         %ul.nav.navbar-nav.navbar-right= yield :navbar
       / /.container

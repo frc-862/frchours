@@ -1,0 +1,17 @@
+- @title = "Hours Report"
+
+.sheet.sheet-condensed
+  .sheet-inner
+    %table.table
+      %thead
+        %tr
+          %th Last name
+          %th First name
+          %th Hours
+      %tbody
+      - @members.each do |member|
+        %tr
+          %td= member.last_name
+          %td= member.first_name
+          %td= distance_of_time_in_words(member.hours)
+

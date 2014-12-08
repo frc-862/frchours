@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reports/members'
+
+  get 'reports/hours'
+
   get 'checkin' => 'checkin#index'
   post 'checkin' => 'checkin#create'
 
