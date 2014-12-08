@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby "2.1.5"
 
 gem 'pusher'
+gem 'dalli'
 gem 'rails_12factor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
