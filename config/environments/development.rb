@@ -36,3 +36,8 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
+
+Pusher.app_id = '99427'
+Pusher.key    = '76bc03205bedbaf25d3b'
+Pusher.secret = '1fb6a4bb74864d56fefe'
+

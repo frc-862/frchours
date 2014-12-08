@@ -24,6 +24,7 @@
     -# favicon_link_tag "apple-touch-icon.png", :rel => "apple-touch-icon"
     
     = yield :head
+
   %body(class="#{controller.class.controller_name} #{controller.action_name}")
     %header
       = render "layouts/navbar"
@@ -42,5 +43,6 @@
     / Le javascript
     / ==================================================
     / Placed at the end of the document so the pages load faster
+    %script{:src => "//js.pusher.com/2.2/pusher.min.js", :type => "text/javascript"}
     = javascript_include_tag "application"
     = yield :javascript
