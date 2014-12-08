@@ -11,6 +11,10 @@ class Member < ActiveRecord::Base
   end
 
   def hours
+    work_time / 60.0 / 60.0
+  end
+
+  def work_time
     attendances.inject(0.0) { |total, att| total + att.duration }
   end
 end

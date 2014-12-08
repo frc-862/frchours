@@ -1,5 +1,7 @@
 - @title = "Member List"
 
+= link_to "xml", reports_hours_path(format: :xml)
+= link_to "json", reports_hours_path(format: :json)
 .sheet.sheet-condensed
   .sheet-inner
     %table.table
@@ -7,6 +9,7 @@
         %tr
           %th Last name
           %th First name
+          %th Student ID
           %th Grade
           %th Email
       %tbody
@@ -14,6 +17,7 @@
         %tr
           %td= member.last_name
           %td= member.first_name
+          %td= member.student_id
           %td= member.grade
           %td= member.email
 

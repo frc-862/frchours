@@ -1,5 +1,6 @@
 - @title = "Hours Report"
-
+= link_to "xml", reports_hours_path(format: :xml)
+= link_to "json", reports_hours_path(format: :json)
 .sheet.sheet-condensed
   .sheet-inner
     %table.table
@@ -13,5 +14,5 @@
         %tr
           %td= member.last_name
           %td= member.first_name
-          %td= distance_of_time_in_words(member.hours)
+          %td= distance_of_time_in_words(member.work_time)
 
