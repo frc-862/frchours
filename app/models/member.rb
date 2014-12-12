@@ -4,6 +4,16 @@ class Member < ActiveRecord::Base
 
   before_save :clean_student_id
 
+  def worked_today?
+    from = ActiveSupport::TimeZone["EST"].parse(Date.today.to_s).to_datetime
+    today = self.attendances.where("signin >= ?", from).where("signin < ?", from + 1)
+    
+    return false if today.empty?
+    today
+  rescue
+    false
+  end
+
   def clean_student_id
     if !mentor?
       self.student_id = self.student_id.to_s.gsub(/\D/,"")
@@ -25,11 +35,11 @@ class Member < ActiveRecord::Base
   def mentor_checkin
     raise "Sorry you are not a mentor" unless mentor?
 
-    from = ActiveSupport::TimeZone["EST"].parse(Date.today.to_s).to_datetime
-    asize = self.attendances.where("signin >= ?", from).where("signin < ?", from + 1).count
-    if asize > 0
-      "You have already logged in today"
+    if today = worked_today?
+      today.delete_all
+      "I have removed your hours for today. If this was an error, just sign in again."
     else
+      from = ActiveSupport::TimeZone["EST"].parse(Date.today.to_s).to_datetime
       to = from + Calendar.hours.hours
       a = attendances.create(:signin => from, :signout => to)
       "Logging #{a.duration_text}"

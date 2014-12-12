@@ -1,7 +1,16 @@
-%h1 
-  Hello #{@mentor.first_name}, thanks for helping us track hours  
-= form_for @mentor, :url => mentor_path, :html => { :class => "form-horizontal member" } do |f|
-  = f.hidden_field :student_id
+- if @mentor.worked_today?
+  %h1 
+    Hello #{@mentor.first_name}, it appears that you have already logged in today
+  = form_for @mentor, :url => mentor_path, :html => { :class => "form-horizontal member" } do |f|
+    = f.hidden_field :student_id
 
-  .form-actions.col-md-offset-2.col-md-10
-    = f.submit "Check in for today", class: 'btn btn-primary btn-large'
+    .form-actions.col-md-offset-2.col-md-10
+      = f.submit "Reverse Login", class: 'btn btn-primary btn-large'
+- else
+  %h1 
+    Hello #{@mentor.first_name}, thanks for helping us track hours  
+  = form_for @mentor, :url => mentor_path, :html => { :class => "form-horizontal member" } do |f|
+    = f.hidden_field :student_id
+
+    .form-actions.col-md-offset-2.col-md-10
+      = f.submit "Check in for today", class: 'btn btn-primary btn-large'

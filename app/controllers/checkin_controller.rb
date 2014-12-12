@@ -49,7 +49,6 @@ class CheckinController < ApplicationController
       flash[:notice] = "No cheating #{@mentor.name}, login as a student!"
       redirect_to checkin_path
     else
-      # Mentor checkin if post.
       @checkin = @mentor.attendances.new
     end
   end
