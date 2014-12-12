@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  resources :calendars
+
   get 'reports/members'
   get 'reports/hours'
   get 'reports/daily'
 
   get 'checkin' => 'checkin#index'
   post 'checkin' => 'checkin#create'
-
+  get 'mentor/:student_id' => 'checkin#mentor'
+  patch 'mentor/:student_id' => 'checkin#mentor_checkin', as: :mentor
 
   resources :attendances
 

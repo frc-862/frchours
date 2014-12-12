@@ -15,6 +15,9 @@ class MembersController < ApplicationController
   # GET /members/new
   def new
     @member = Member.new(member_params)
+  rescue ActionController::ParameterMissing
+    # allow missing params
+    @member = Member.new
   end
 
   # GET /members/1/edit
@@ -69,6 +72,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:last_name, :first_name, :student_id, :grade, :email)
+      params.require(:member).permit(:last_name, :first_name, :student_id, :grade, :email, :mentor)
     end
 end

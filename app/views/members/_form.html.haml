@@ -28,6 +28,12 @@
         = f.text_field :email, class: 'form-control'
         = f.error_messages
 
+    = f.form_group :mentor do |f|
+      = f.label :mentor, class: 'form-label col-md-2'
+      .col-md-8
+        = f.check_box :mentor, class: 'form-control'
+        = f.error_messages
+
   .form-actions.col-md-offset-2.col-md-10
     = f.submit class: 'btn btn-primary'
     = link_to "Cancel", members_path, class: 'btn'

@@ -23,4 +23,33 @@ class CheckinController < ApplicationController
       redirect_to checkin_path
     end
   end
+
+  def mentor_checkin
+    @mentor = Member.where(:student_id => params[:student_id]).first
+
+    if @mentor.nil?
+      flash[:notice] = "Mentor not found, please add"
+      redirect_to new_member_path
+    elsif !@mentor.mentor?
+      flash[:notice] = "No cheating #{@mentor.name}, login as a student!"
+      redirect_to checkin_path
+    else
+      flash.now[:notice] = @mentor.mentor_checkin
+    end
+  end
+
+  def mentor
+    @mentor = Member.where(:student_id => params[:student_id]).first
+
+    if @mentor.nil?
+      flash[:notice] = "Mentor not found, please add"
+      redirect_to new_member_path
+    elsif !@mentor.mentor?
+      flash[:notice] = "No cheating #{@mentor.name}, login as a student!"
+      redirect_to checkin_path
+    else
+      # Mentor checkin if post.
+      @checkin = @mentor.attendances.new
+    end
+  end
 end
