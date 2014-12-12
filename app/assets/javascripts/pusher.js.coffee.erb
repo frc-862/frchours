@@ -2,10 +2,7 @@
 $ ->
   pusher = new Pusher("<%= Pusher.key %>") # uses your APP KEY
   channel = pusher.subscribe("frc862")
-  console.log "pusher"
   channel.bind "info", (data) ->
-    console.log "frc push"
-    console.log data
     $(".live-info > div:hidden").remove()
     killme = $(".live-info > div").slice(7)
     $("<div>#{data.info}</div>").clone().hide().prependTo('.live-info').slideDown()

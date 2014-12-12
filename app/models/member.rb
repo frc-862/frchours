@@ -10,7 +10,7 @@ class Member < ActiveRecord::Base
     "#{first_name} #{last_name}".strip
   end
 
-  def hours
+  def total_hours
     work_time / 60.0 / 60.0
   end
 
