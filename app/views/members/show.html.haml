@@ -2,19 +2,20 @@
 
 .form-horizontal
   .form-group
-    %label.col-sm-2.form-label Last name
+    %label.col-sm-2.form-label= if @member.mentor? then "Mentor Id" else "Student Id" end
     .uneditable-input.col-md-8.form-control
-      %span= @member.last_name
+      %span= @member.student_id
 
   .form-group
-    %label.col-sm-2.form-label First name
+    %label.col-sm-2.form-label Name
     .uneditable-input.col-md-8.form-control
-      %span= @member.first_name
+      %span= @member.name
 
-  .form-group
-    %label.col-sm-2.form-label Grade
-    .uneditable-input.col-md-8.form-control
-      %span= @member.grade
+  - if !@member.mentor?
+    .form-group
+      %label.col-sm-2.form-label Grade
+      .uneditable-input.col-md-8.form-control
+        %span= @member.grade
 
   .form-group
     %label.col-sm-2.form-label Email

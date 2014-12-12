@@ -2,11 +2,11 @@ class Member < ActiveRecord::Base
   has_many :attendances, :foreign_key => 'student_id', :primary_key => 'student_id'
   validates_uniqueness_of :student_id
 
-  def student_id=(val)
-    if mentor?
-      write_attribute(:student_id, val)
-    else
-      write_attribute(:student_id, val.to_s.gsub(/\D/,""))
+  before_save :clean_student_id
+
+  def clean_student_id
+    if !mentor?
+      self.student_id = self.student_id.to_s.gsub(/\D/,"")
     end
   end
 

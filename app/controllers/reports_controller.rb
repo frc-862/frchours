@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
     if params[:date]
       @date = ActiveSupport::TimeZone["EST"].parse(params[:date]).to_datetime
     else
-      @date = Date.today.to_datetime
+      @date = ActiveSupport::TimeZone["EST"].parse(Date.today.to_s).to_datetime
     end
     @members = @members.where("attendances.signin >= ? AND attendances.signin < ?",
                               @date, @date + 1)
