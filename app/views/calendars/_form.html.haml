@@ -1,10 +1,20 @@
-= simple_form_for(@calendar, wrapper: :horizontal_form, html: { class: 'form-horizontal' }) do |f|
+= form_for(@calendar, html: { class: 'form-horizontal' }) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :day
-    = f.input :hours
+    = f.form_group :day do |f|
+      = f.label :day, class: 'form-label col-md-2'
+      .col-md-8
+        = f.date_field :day, class: 'form-control'
+        = f.error_messages
 
-  .form-actions
-    = f.button :submit
-    = f.button :cancel, to: calendars_path
+  .form-inputs
+    = f.form_group :hours do |f|
+      = f.label :hours, class: 'form-label col-md-2'
+      .col-md-8
+        = f.text_field :hours, class: 'form-control'
+        = f.error_messages
+
+  .form-actions.col-md-offset-2.col-md-10
+    = f.submit class: 'btn btn-primary'
+    = link_to "Cancel", calendars_path, class: 'btn'
