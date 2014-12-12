@@ -1,4 +1,5 @@
-%h1 Thanks for helping us track hours  
+%h1 
+  Hello #{@mentor.first_name}, thanks for helping us track hours  
 = form_for @mentor, :url => mentor_path, :html => { :class => "form-horizontal member" } do |f|
   = f.hidden_field :student_id
 
