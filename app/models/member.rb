@@ -25,9 +25,14 @@ class Member < ActiveRecord::Base
   def mentor_checkin
     raise "Sorry you are not a mentor" unless mentor?
 
-    from = DateTime.now
-    to = from + Calendar.hours.hours
-    a = attendances.create(:signin => from, :signout => to)
-    "Logging #{a.duration_text}"
+    from = ActiveSupport::TimeZone["EST"].parse(Date.today.to_s).to_datetime
+    asize = self.attendances.where("signin >= ?", from).where("signin < ?", from + 1).count
+    if asize > 0
+      "You have already logged in today"
+    else
+      to = from + Calendar.hours.hours
+      a = attendances.create(:signin => from, :signout => to)
+      "Logging #{a.duration_text}"
+    end
   end
 end
