@@ -1,4 +1,5 @@
 class CheckinController < ApplicationController
+  before_action :authenticate_admin!, :except => [:mentor_checkin, :mentor]
   def index
     @checkin = Attendance.new
   end
