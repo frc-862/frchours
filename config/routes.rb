@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :attendances
 
-  devise_for :admins
+  devise_for :admins, controllers: { sessions: 'sessions' }
   resources :members
 
   # The priority is based upon order of creation: first created -> highest priority.
